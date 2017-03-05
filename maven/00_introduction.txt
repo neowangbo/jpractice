@@ -1,0 +1,6 @@
+1. Create a maven project
+> mvn archetype:generate
+
+Where to find the archetype template list?
+
+    
