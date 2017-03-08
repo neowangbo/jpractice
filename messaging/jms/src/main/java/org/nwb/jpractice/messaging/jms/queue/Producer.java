@@ -41,6 +41,7 @@ public class Producer {
             message.setText("Hello@" + Calendar.getInstance().getTime());
             
             producer.send(message);
+            //
 
         } catch (JMSException ex) {
             Logger.getLogger(Producer.class.getName()).log(Level.SEVERE, null, ex);
