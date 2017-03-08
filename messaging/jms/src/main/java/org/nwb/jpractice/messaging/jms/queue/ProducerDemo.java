@@ -21,7 +21,7 @@ import org.apache.activemq.ActiveMQConnectionFactory;
  *
  * @author wangbo
  */
-public class Producer {
+public class ProducerDemo {
 
     public static void main(String[] args) {
 
@@ -41,10 +41,9 @@ public class Producer {
             message.setText("Hello@" + Calendar.getInstance().getTime());
             
             producer.send(message);
-            //
 
         } catch (JMSException ex) {
-            Logger.getLogger(Producer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProducerDemo.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
