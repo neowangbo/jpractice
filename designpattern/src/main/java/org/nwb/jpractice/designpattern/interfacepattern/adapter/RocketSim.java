@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.nwb.jpractice.designpattern;
+package org.nwb.jpractice.designpattern.interfacepattern.adapter;
 
 /**
  *
  * @author wangbo
  */
-interface AnInterface {
+public interface RocketSim {
     
-    Object obj = System.getProperties();
-   
+    double getMass();
+    double getThrust();
+    void setSimTime(double t);
     
 }

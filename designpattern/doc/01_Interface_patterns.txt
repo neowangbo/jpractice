@@ -1,6 +1,12 @@
 -----------------------------------------------------------------------------------------------------------------------------
 - Adapter
+-  
 -
--
+Class Adapters  
 The intent of adapter is to provide the interface that a client expects while using the services of a class with a different interface.
- 
+
+Adapter class implements the desired interface and subclasses an existing class. When the set of methods that you need to adapt
+ is not specified in an interface, so we push out object adapter.
+
+Object Adapters
+Use delegation rather than subclass.
