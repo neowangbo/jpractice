@@ -2,6 +2,16 @@
 - Adapter
 -  
 -
+The adapter pattern lets you use an existing class to meet a client class's needs. When a client specifies it requirements in
+an interface, you can usually create a new class that implements the interface and subclasses an existing class. This approach 
+create a class adapter that translates a client's calls into calls to the existing class's methods.
+
+When a client does not specify the interface it requires, you may still be able to apply adapter, creating a new client subclass 
+that uses an instance of the existing class. This approach creates an object adapter that forwards a client's calls to an 
+instance of the existing class. This approach can be dangerous, especially if you don't (or perhaps can't) override all the 
+methods that the client might call.
+
+
 Class Adapters  
 The intent of adapter is to provide the interface that a client expects while using the services of a class with a different interface.
 
@@ -10,3 +20,4 @@ Adapter class implements the desired interface and subclasses an existing class.
 
 Object Adapters
 Use delegation rather than subclass.
+
