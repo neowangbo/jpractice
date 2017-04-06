@@ -9,7 +9,7 @@ create a class adapter that translates a client's calls into calls to the existi
 When a client does not specify the interface it requires, you may still be able to apply adapter, creating a new client subclass 
 that uses an instance of the existing class. This approach creates an object adapter that forwards a client's calls to an 
 instance of the existing class. This approach can be dangerous, especially if you don't (or perhaps can't) override all the 
-methods that the client might call.
+methods that the client might call.	
 
 
 Class Adapters  
