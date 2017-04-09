@@ -6,8 +6,6 @@
 package org.nwb.jpractice.jmx.trail;
 
 import java.lang.management.ManagementFactory;
-import java.util.Queue;
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.management.InstanceAlreadyExistsException;
@@ -18,6 +16,7 @@ import javax.management.NotCompliantMBeanException;
 import javax.management.ObjectName;
 import org.nwb.jpractice.jmx.trail.mxb.QueueSampler;
 import org.nwb.jpractice.jmx.trail.standardmb.Hello;
+import org.nwb.jpractice.jmx.trail.standardmb.NotificationHello;
 
 /**
  *
@@ -37,10 +36,14 @@ public class Main {
             ObjectName name = new ObjectName("org.nwb.jpractice.jmx.trail.standardmb:type=Hello");
             mbs.registerMBean(mbean, name);
 
-            ObjectName mxbName = new ObjectName("org.nwb.jpractice.jmx.trail.mxb:type=QueueSampler");
             QueueSampler mxbean = new QueueSampler();
+            ObjectName mxbName = new ObjectName("org.nwb.jpractice.jmx.trail.mxb:type=QueueSampler");
             mbs.registerMBean(mxbean, mxbName);
 
+            NotificationHello nmbean = new NotificationHello();
+            ObjectName nmbName = new ObjectName("org.nwb.jpractice.jmx.trail.standardmb:type=NotificationHello");
+            mbs.registerMBean(nmbean, nmbName);
+            
             Logger.getLogger(Main.class.getName()).log(Level.INFO, "Waiting forever ...");
 
             Thread.sleep(Long.MAX_VALUE);

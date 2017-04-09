@@ -5,15 +5,19 @@
  */
 package org.nwb.jpractice.jmx.trail.standardmb;
 
+import java.util.logging.Logger;
+
 /**
  *
  * @author wangbo
  */
 public class Hello implements HelloMBean{
+    
+    private static final Logger LOGGER = Logger.getLogger(Hello.class.getName());
 
     @Override
     public void sayHello() {
-        System.out.println("Hello, world!");
+        LOGGER.info("[Hello] Hello, world!");
     }
 
     @Override
@@ -36,7 +40,7 @@ public class Hello implements HelloMBean{
         this.cacheSize = size;
     }
     
-    private String name = "HelloMBean";
+    private String name = "Hello";
     
     private int cacheSize = 1024;
     
