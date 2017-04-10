@@ -8,7 +8,6 @@ package org.nwb.jpractice.jmx.trail.standardmb;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.management.AttributeChangeNotification;
-import javax.management.MBeanNotificationInfo;
 import javax.management.Notification;
 import javax.management.NotificationBroadcasterSupport;
 
@@ -16,9 +15,9 @@ import javax.management.NotificationBroadcasterSupport;
  *
  * @author wangbo
  */
-public class NotificationHello extends NotificationBroadcasterSupport implements HelloMBean {
+public class HelloNotification extends NotificationBroadcasterSupport implements HelloNotificationMBean {
 
-    private static final Logger LOGGER = Logger.getLogger(NotificationHello.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(HelloNotification.class.getName());
     
     @Override
     public void sayHello() {
@@ -53,19 +52,6 @@ public class NotificationHello extends NotificationBroadcasterSupport implements
                                 oldSize, this.cacheSize);
 
         sendNotification(n);
-    }
-    
-    @Override
-    public MBeanNotificationInfo[] getNotificationInfo() {
-        String[] types = new String[]{
-            AttributeChangeNotification.ATTRIBUTE_CHANGE
-        };
-
-        String name = AttributeChangeNotification.class.getName();
-        String description = "An attribute of this MBean has changed";
-        MBeanNotificationInfo info = 
-                new MBeanNotificationInfo(types, name, description);
-        return new MBeanNotificationInfo[]{info};
     }
     
     private final String name = "NotificationHello";
