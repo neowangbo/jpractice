@@ -21,4 +21,8 @@ public interface HelloMBean {
 
     public void setCacheSize(int size);
     
+    public void setActive(boolean active);
+    
+    public boolean isActive();
+    
 }

@@ -39,9 +39,21 @@ public class Hello implements HelloMBean{
     public void setCacheSize(int size) {
         this.cacheSize = size;
     }
+
+    @Override
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    @Override
+    public boolean isActive() {
+        return this.active;
+    }
     
     private String name = "Hello";
     
     private int cacheSize = 1024;
     
+    private boolean active = false;
+
 }

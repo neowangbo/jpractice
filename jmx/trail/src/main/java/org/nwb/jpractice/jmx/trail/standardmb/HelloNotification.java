@@ -54,6 +54,16 @@ public class HelloNotification extends NotificationBroadcasterSupport implements
         sendNotification(n);
     }
     
+    @Override
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    @Override
+    public boolean isActive() {
+        return this.active;
+    }
+    
     private final String name = "NotificationHello";
     
     private int cacheSize = DEFAULT_CACHE_SIZE;
@@ -61,5 +71,7 @@ public class HelloNotification extends NotificationBroadcasterSupport implements
     private static final int DEFAULT_CACHE_SIZE = 200;
     
     private long sequenceNumber = 1;
+    
+    private boolean active = false;
     
 }
