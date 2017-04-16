@@ -14,6 +14,7 @@ import javax.management.MBeanServer;
 import javax.management.MalformedObjectNameException;
 import javax.management.NotCompliantMBeanException;
 import javax.management.ObjectName;
+import org.nwb.jpractice.jmx.trail.dynamicmb.SimpleDynamic;
 import org.nwb.jpractice.jmx.trail.mxb.QueueSampler;
 import org.nwb.jpractice.jmx.trail.standardmb.Hello;
 import org.nwb.jpractice.jmx.trail.standardmb.HelloNotification;
@@ -36,19 +37,19 @@ public class Main {
             MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
             
             
-            // Standard MBean
+            // 1-Standard MBean
             Hello mbean = new Hello();
             ObjectName name = new ObjectName("org.nwb.jpractice.jmx.trail.standardmb:type=Hello");
             mbs.registerMBean(mbean, name);
 
             
-            // MXBean
+            // 2-MXBean
             QueueSampler mxbean = new QueueSampler();
             ObjectName mxbName = new ObjectName("org.nwb.jpractice.jmx.trail.mxb:type=QueueSampler");
             mbs.registerMBean(mxbean, mxbName);
 
             
-            // MBean with notification
+            // 3-MBean with notification
             HelloNotification nmbean = new HelloNotification();
             ObjectName nmbName = new ObjectName("org.nwb.jpractice.jmx.trail.standardmb:type=HelloNotification");
             mbs.registerMBean(nmbean, nmbName);
@@ -57,6 +58,11 @@ public class Main {
             nmbean.addNotificationListener(new HelloNotificationListener(), null, null);
             nmbean.addNotificationListener(new HelloNotificationListener(), null, null);
             nmbean.addNotificationListener(new HelloNotificationListener(), null, null);
+            
+            // 4-dynamic MBean
+            SimpleDynamic dmb = new SimpleDynamic();
+            ObjectName dmbName = new ObjectName("org.nwb.jpractice.jmx.trail.dynamicmb:type=SimpleDynamic");
+            mbs.registerMBean(dmb, dmbName);
             
             
             Logger.getLogger(Main.class.getName()).log(Level.INFO, "Waiting forever ...");
