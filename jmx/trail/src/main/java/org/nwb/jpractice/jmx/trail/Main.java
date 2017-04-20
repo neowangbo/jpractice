@@ -16,6 +16,7 @@ import javax.management.NotCompliantMBeanException;
 import javax.management.ObjectName;
 import org.nwb.jpractice.jmx.trail.dynamicmb.SimpleDynamic;
 import org.nwb.jpractice.jmx.trail.mxb.QueueSampler;
+import org.nwb.jpractice.jmx.trail.standardmb.Greeting;
 import org.nwb.jpractice.jmx.trail.standardmb.Hello;
 import org.nwb.jpractice.jmx.trail.standardmb.HelloNotification;
 import org.nwb.jpractice.jmx.trail.standardmb.HelloNotificationListener;
@@ -41,6 +42,10 @@ public class Main {
             Hello mbean = new Hello();
             ObjectName name = new ObjectName("org.nwb.jpractice.jmx.trail.standardmb:type=Hello");
             mbs.registerMBean(mbean, name);
+            
+            Greeting mbean2 = new Greeting();
+            ObjectName name2 = new ObjectName("org.nwb.jpractice.jmx.trail.standardmb:type=Greeting");
+            mbs.registerMBean(mbean2, name2);
 
             
             // 2-MXBean
@@ -57,12 +62,14 @@ public class Main {
             // Add notification listeners
             nmbean.addNotificationListener(new HelloNotificationListener(), null, null);
             nmbean.addNotificationListener(new HelloNotificationListener(), null, null);
-            nmbean.addNotificationListener(new HelloNotificationListener(), null, null);
             
             // 4-dynamic MBean
             SimpleDynamic dmb = new SimpleDynamic();
             ObjectName dmbName = new ObjectName("org.nwb.jpractice.jmx.trail.dynamicmb:type=SimpleDynamic");
             mbs.registerMBean(dmb, dmbName);
+            
+            // Add notification listeners
+            dmb.addNotificationListener(new HelloNotificationListener(), null, null);
             
             
             Logger.getLogger(Main.class.getName()).log(Level.INFO, "Waiting forever ...");

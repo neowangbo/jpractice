@@ -29,7 +29,7 @@ public class HelloNotificationListener implements NotificationListener{
     
     @Override
     public void handleNotification(Notification notification, Object handback) {
-        LOGGER.log(Level.INFO, "{0} :: {1}", new Object[]{listenerId, notification.toString()});
+        LOGGER.log(Level.INFO, "{0} :: {1} :: {2} :: {3}", new Object[]{listenerId, notification.getSequenceNumber(), notification.getMessage(), notification.getType()});
     }
     
 }
