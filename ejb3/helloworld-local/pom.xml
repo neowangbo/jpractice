@@ -8,10 +8,10 @@
     </parent>
 
     <groupId>org.nwb.jpractice.ejb3</groupId>
-    <artifactId>helloworld</artifactId>
+    <artifactId>helloworld-local</artifactId>
     <packaging>ejb</packaging>
 
-    <name>helloworld</name>
+    <name>helloworld-local</name>
 
     <dependencies>
         <dependency>
