@@ -13,7 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.nwb.jpractice.ejb3.helloworld.local.HelloWorldSessionBeanLocal;
+import org.nwb.jpractice.ejb3.helloworld.ejb.InternalHelloWorldSessionBean;
 
 /**
  *
@@ -23,8 +23,8 @@ public class HelloWorldServlet extends HttpServlet {
     
     private final static Logger LOGGER = Logger.getLogger(HelloWorldServlet.class.getName());
     
-    @EJB(beanName="HelloWorldSessionBean")
-    private HelloWorldSessionBeanLocal helloWorldBean;
+    @EJB
+    private InternalHelloWorldSessionBean helloWorldBean;
     
 
     /**
