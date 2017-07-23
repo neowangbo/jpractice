@@ -16,10 +16,16 @@ import javax.ejb.Remove;
 import javax.ejb.Stateless;
 
 /**
- *
+ * Stateless:
+ * -name: the name of the stateless session bean. Default name is unqualified name of bean class.
+ * -mappedName: product-specific name to which the stateless session bean should be mapped. Weblogic server use this value to create global JNDI name.
+ * JNDI name: mappedName#qualified_interface_name
+ *              
+ * 
+ * 
  * @author b5wang
  */
-@Stateless
+@Stateless(name="HelloWorldSessionBean")
 public class HelloWorldSessionBean implements HelloWorldSessionBeanLocal {
 
     private final static Logger LOGGER = Logger.getLogger(HelloWorldSessionBean.class.getName());

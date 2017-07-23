@@ -6,18 +6,23 @@
         <artifactId>parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
+    
     <groupId>org.nwb.jpractice.ejb3</groupId>
-    <artifactId>helloworld-local</artifactId>
-    <packaging>ejb</packaging>
-    <name>helloworld-local</name>
-
+    <artifactId>helloworld-web</artifactId>
+    <packaging>war</packaging>
+    <name>helloworld-web</name>
+    
     <dependencies>
         <dependency>
             <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
+            <artifactId>javaee-web-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.nwb.jpractice.ejb3</groupId>
+            <artifactId>helloworld-local</artifactId>
+            <version>1.0-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
 </project>
