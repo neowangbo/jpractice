@@ -13,20 +13,19 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.nwb.jpractice.ejb3.helloworld.ejb.InternalHelloWorldSessionBean;
+import org.nwb.jpractice.ejb3.helloworld.ejb.HelloWorldBeanLocal;
 
 /**
  *
- * @author wangbo
+ * @author b5wang
  */
 public class HelloWorldServlet extends HttpServlet {
-    
+
     private final static Logger LOGGER = Logger.getLogger(HelloWorldServlet.class.getName());
     
     @EJB
-    private InternalHelloWorldSessionBean helloWorldBean;
+    private HelloWorldBeanLocal localBean;
     
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      *
@@ -36,12 +35,10 @@ public class HelloWorldServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
+            throws ServletException, IOException {
         
-        LOGGER.info("Received a request!!!");
-        
-        helloWorldBean.sayHello();
-        
+        LOGGER.info("Receive HTTP request /say!");
+        localBean.sayHello();
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -68,7 +65,7 @@ public class HelloWorldServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
+            throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -82,7 +79,7 @@ public class HelloWorldServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
+            throws ServletException, IOException {
         processRequest(request, response);
     }
 
