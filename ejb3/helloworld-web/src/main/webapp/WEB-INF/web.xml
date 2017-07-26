@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <!-- If using this item, url will become http://<host>:<port>/<module-name>
+    <module-name>helloworld-web</module-name>
+    -->
     <servlet>
         <servlet-name>HelloWorldServlet</servlet-name>
         <servlet-class>org.nwb.jpractice.ejb3.helloworld.web.HelloWorldServlet</servlet-class>
