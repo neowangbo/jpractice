@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +20,7 @@ import org.nwb.jpractice.ejb3.helloworld.ejb.HelloWorldBeanLocal;
  *
  * @author b5wang
  */
+@WebServlet(urlPatterns="/say", name="HelloWorldServlet")
 public class HelloWorldServlet extends HttpServlet {
 
     private final static Logger LOGGER = Logger.getLogger(HelloWorldServlet.class.getName());

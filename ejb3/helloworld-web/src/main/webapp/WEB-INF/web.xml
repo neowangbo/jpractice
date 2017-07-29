@@ -3,14 +3,6 @@
     <!-- If using this item, url will become http://<host>:<port>/<module-name>
     <module-name>helloworld-web</module-name>
     -->
-    <servlet>
-        <servlet-name>HelloWorldServlet</servlet-name>
-        <servlet-class>org.nwb.jpractice.ejb3.helloworld.web.HelloWorldServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>HelloWorldServlet</servlet-name>
-        <url-pattern>/say</url-pattern>
-    </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
