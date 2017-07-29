@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.nwb.jpractice.ejb3.helloworld.ejb.HelloWorldBeanLocal;
+import org.nwb.jpractice.ejb3.helloworld.ejb.SecondarySingletonBean;
 
 /**
  *
@@ -28,6 +29,9 @@ public class HelloWorldServlet extends HttpServlet {
     @EJB
     private HelloWorldBeanLocal localBean;
     
+    @EJB
+    private SecondarySingletonBean secondarySingletonBean;
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      *
@@ -40,7 +44,8 @@ public class HelloWorldServlet extends HttpServlet {
             throws ServletException, IOException {
         
         LOGGER.info("Receive HTTP request /say!");
-        localBean.sayHello();
+        secondarySingletonBean.configApp();
+        localBean.sayHello();        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
