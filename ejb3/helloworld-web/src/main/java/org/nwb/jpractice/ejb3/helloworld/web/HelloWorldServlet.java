@@ -26,8 +26,17 @@ public class HelloWorldServlet extends HttpServlet {
 
     private final static Logger LOGGER = Logger.getLogger(HelloWorldServlet.class.getName());
     
-    @EJB
-    private HelloWorldBeanLocal localBean;
+    @EJB(beanName="ejb/HelloWorldBean")
+    private HelloWorldBeanLocal bean1;
+    
+    @EJB(beanName="ejb/AdvancedHelloWorldBean")
+    private HelloWorldBeanLocal bean2;
+    
+    @EJB(mappedName="HelloWorldBean!org.nwb.jpractice.ejb3.helloworld.ejb.HelloWorldBeanLocal")
+    private HelloWorldBeanLocal bean3;
+    
+    @EJB(mappedName="AdvancedHelloWorldBean!org.nwb.jpractice.ejb3.helloworld.ejb.HelloWorldBeanLocal")
+    private HelloWorldBeanLocal bean4;
     
     @EJB
     private SecondarySingletonBean secondarySingletonBean;
@@ -45,7 +54,13 @@ public class HelloWorldServlet extends HttpServlet {
         
         LOGGER.info("Receive HTTP request /say!");
         secondarySingletonBean.configApp();
-        localBean.sayHello();        
+        
+        
+        bean1.sayHello();
+        bean2.sayHello();
+        bean3.sayHello();
+        bean4.sayHello();
+        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */

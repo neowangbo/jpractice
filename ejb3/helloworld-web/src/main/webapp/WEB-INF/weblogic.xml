@@ -3,5 +3,5 @@
     <jsp-descriptor>
         <keepgenerated>true</keepgenerated>
         <debug>true</debug>
-    </jsp-descriptor>
+    </jsp-descriptor>    
 </weblogic-web-app>

@@ -8,7 +8,6 @@ package org.nwb.jpractice.ejb3.helloworld.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Logger;
-import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,7 +24,7 @@ public class ByebyeServlet extends HttpServlet{
     
     private static final Logger LOGGER = Logger.getLogger(ByebyeServlet.class.getName());
     
-    @EJB
+//    @EJB
     private HelloWorldBeanLocal localBean;
     
     

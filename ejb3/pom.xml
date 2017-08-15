@@ -7,12 +7,7 @@
     <packaging>pom</packaging>
     <name>helloworld</name>
     
-    <modules>
-        <module>helloworld-ear</module>
-        <module>helloworld-web</module>
-        <module>helloworld-ejb</module>
-        <module>helloworld-jar</module>
-    </modules>
+    <modules></modules>
     
     <properties>
         <appname>helloworld</appname>
