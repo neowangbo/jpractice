@@ -18,5 +18,8 @@
         <module>helloworld-war</module>
         <module>helloworld-ejb-local</module>
         <module>helloworld-ejb-api</module>
-    </modules>
+    <module>helloworld-ejb-remote</module>
+    <module>helloworld-ejb-ear</module>
+    <module>helloworld-ejb-client</module>
+  </modules>
 </project>
