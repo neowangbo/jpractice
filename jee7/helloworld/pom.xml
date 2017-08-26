@@ -7,6 +7,11 @@
     <packaging>pom</packaging>
     <name>helloworld</name>
     
+    <organization>
+        <name>neo.wangbo</name>
+        <url>http://programmingape.blogspot.sg/</url>
+    </organization>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -18,8 +23,8 @@
         <module>helloworld-war</module>
         <module>helloworld-ejb-local</module>
         <module>helloworld-ejb-api</module>
-    <module>helloworld-ejb-remote</module>
-    <module>helloworld-ejb-ear</module>
-    <module>helloworld-ejb-client</module>
-  </modules>
+        <module>helloworld-ejb-remote</module>
+        <module>helloworld-ejb-ear</module>
+        <module>helloworld-ejb-client</module>
+    </modules>
 </project>
