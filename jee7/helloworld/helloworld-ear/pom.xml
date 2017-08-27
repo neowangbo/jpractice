@@ -16,6 +16,27 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.nwb.jpractice.jee7</groupId>
+            <artifactId>helloworld-war</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>com.nwb.jpractice.jee7</groupId>
+            <artifactId>helloworld-ejb-local</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>com.nwb.jpractice.jee7</groupId>
+            <artifactId>helloworld-ejb-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
   
     <build>
         <finalName>${project.artifactId}</finalName>
@@ -58,25 +79,4 @@
             </plugin>
         </plugins>
     </build>
-    
-    <dependencies>
-        <dependency>
-            <groupId>com.nwb.jpractice.jee7</groupId>
-            <artifactId>helloworld-war</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>war</type>
-        </dependency>
-        <dependency>
-            <groupId>com.nwb.jpractice.jee7</groupId>
-            <artifactId>helloworld-ejb-local</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>ejb</type>
-        </dependency>
-        <dependency>
-            <groupId>com.nwb.jpractice.jee7</groupId>
-            <artifactId>helloworld-ejb-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>jar</type>
-        </dependency>
-    </dependencies>
 </project>
