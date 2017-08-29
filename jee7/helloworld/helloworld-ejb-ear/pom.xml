@@ -50,6 +50,7 @@
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                         </manifest>
                         <manifestEntries>
+                            <Specification-Version>${project.artifact.selectedVersion.majorVersion}.${project.artifact.selectedVersion.minorVersion}</Specification-Version>
                             <Extension-Name>${project.artifactId}</Extension-Name>
                         </manifestEntries>
                     </archive>
