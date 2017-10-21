@@ -7,10 +7,7 @@ package org.nwb.jpractice.security.digitalsignature;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.Provider;
-import java.security.Security;
 import org.nwb.jpractice.utils.StringUtil;
-import sun.security.jca.Providers;
 
 
 /**

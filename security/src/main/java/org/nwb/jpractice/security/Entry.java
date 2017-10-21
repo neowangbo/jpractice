@@ -6,6 +6,7 @@
 package org.nwb.jpractice.security;
 
 import org.nwb.jpractice.security.digitalsignature.GenDSAKeyPair;
+import org.nwb.jpractice.security.digitalsignature.SignData;
 
 /**
  *
@@ -13,11 +14,13 @@ import org.nwb.jpractice.security.digitalsignature.GenDSAKeyPair;
  */
 public class Entry {
     
-    private final static String COMMAND_GEMKEYPAIR = "dsakeypair";
+    private final static String COMMAND_GENDSAKEYPAIR = "dsakeypair";
     
     private final static String COMMAND_SIGN = "sign";
     
-    private final static String[] COMMANDS = {COMMAND_GEMKEYPAIR,COMMAND_SIGN};
+    private final static String COMMAND_VERIFY = "verify";
+    
+    private final static String[] COMMANDS = {COMMAND_GENDSAKEYPAIR,COMMAND_SIGN,COMMAND_VERIFY};
     
     public static void main(String[] args){
         
@@ -28,15 +31,24 @@ public class Entry {
             System.out.println("Execute " + command);
             
             switch(command){
-                case COMMAND_GEMKEYPAIR:{
+                case COMMAND_GENDSAKEYPAIR:{
+                    System.out.println("Generate DSA key pair...");
                     final String path = args[1];
                     final String name = args[2];
                     GenDSAKeyPair.generate(path, name);
                     break;
                 }
                 case COMMAND_SIGN:{
-                    final String priv = args[1];
+                    System.out.println("Sign signature...");
+                    final String privKeyFile = args[1];
                     final String file = args[2];
+                    SignData.sign(privKeyFile, file);
+                    break;
+                }
+                case COMMAND_VERIFY:{
+                    System.out.println("Verify signature...");
+                    final String path = arg[1];
+                    final String name = arg[2];
                     break;
                 }
                 default:{

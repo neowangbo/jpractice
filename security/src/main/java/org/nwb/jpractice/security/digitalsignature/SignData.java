@@ -7,42 +7,53 @@ package org.nwb.jpractice.security.digitalsignature;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.security.KeyFactory;
+import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.NoSuchProviderException;
+import java.security.SecureRandom;
+import java.security.Signature;
+import java.security.SignatureException;
+import java.security.interfaces.DSAPrivateKey;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.nwb.jpractice.utils.StringUtil;
 
 /**
  *
  * @author wangbo
  */
 public class SignData {
-    
-    public static void sign(String privFile, String file){
+
+    public static void sign(String privKeyFile, String file) {
         
-        try {
-            KeyFactory keyFactory = KeyFactory.getInstance("DSA");
-            
-            try(FileInputStream fis = new FileInputStream(privFile);){
-                int len = fis.available();
-                byte[] ba = new byte[len];
-                fis.read(ba);
-                
-                PKCS8EncodedKeySpec priKeySpec = new PKCS8EncodedKeySpec(ba);
-                PrivateKey priKey = keyFactory.generatePrivate(priKeySpec);
-                
-            } catch (IOException | InvalidKeySpecException ex) {
-                Logger.getLogger(SignData.class.getName()).log(Level.SEVERE, null, ex);
+        System.out.println("Private key: " + privKeyFile);
+        System.out.println("File       : " + file);
+
+        try (FileInputStream fis = new FileInputStream(file);) {
+            DSAPrivateKey privKey = ReadDSAKey.readPrivateKey(privKeyFile);
+            if (privKey == null) {
+                System.out.println("DSA private key is null.");
+                return;
+            }
+
+            Signature dsa = Signature.getInstance("SHA1withDSA", "SUN");
+            SecureRandom random = SecureRandom.getInstance("SHA1PRNG", "SUN");
+            dsa.initSign(privKey, random);
+
+            byte[] buf = new byte[1024];
+            int len;
+            while ((len = fis.read(buf)) >= 0) {
+                dsa.update(buf, 0, len);
             }
             
+            byte[] realSig = dsa.sign();
             
-            PrivateKey priv = new PrivateKey();
-        } catch (NoSuchAlgorithmException ex) {
+            String sig = StringUtil.bytesToHex(realSig, true);
+            System.out.println("Signature: " + sig);
+        } catch (NoSuchAlgorithmException | NoSuchProviderException | InvalidKeyException | SignatureException | IOException ex) {
             Logger.getLogger(SignData.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
-    
+
 }

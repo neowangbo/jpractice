@@ -39,7 +39,7 @@ public class GenDSAKeyPair {
             */
             KeyPairGenerator generator = KeyPairGenerator.getInstance("DSA", "SUN");
             SecureRandom random = SecureRandom.getInstance("SHA1PRNG", "SUN");
-            generator.initialize(2048, random);
+            generator.initialize(1024, random);
             
             KeyPair keyPair = generator.generateKeyPair();
             
