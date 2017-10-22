@@ -15,6 +15,7 @@ import java.security.SignatureException;
 import java.security.interfaces.DSAPublicKey;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.nwb.jpractice.utils.StringUtil;
 
 /**
  *
@@ -24,7 +25,9 @@ public class VerifyDataBySignature {
     
     public static void verify(String pubKeyFile, String file, String signature){
         System.out.println("Public certificate: " + pubKeyFile);
-        System.out.println("Public certificate: " + pubKeyFile);
+        System.out.println("File to verify    : " + file);
+        System.out.println("Digital signature : " + signature);
+        
         try(FileInputStream fis = new FileInputStream(file);){
             DSAPublicKey pub = ReadDSAKey.readPublicKey(pubKeyFile);
             if(pub == null){
@@ -41,17 +44,11 @@ public class VerifyDataBySignature {
                 sig.update(buf, 0, len);
             }
             
-            boolean result = sig.verify(sigToVerify);
+            byte[] byteArr = StringUtil.hexStringToByteArray(signature);
+            boolean result = sig.verify(byteArr);
+            System.out.println("Verifying result: " + result);
             
-        } catch (IOException ex) {
-            Logger.getLogger(VerifyDataBySignature.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(VerifyDataBySignature.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NoSuchProviderException ex) {
-            Logger.getLogger(VerifyDataBySignature.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InvalidKeyException ex) {
-            Logger.getLogger(VerifyDataBySignature.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SignatureException ex) {
+        } catch (IOException | NoSuchAlgorithmException | NoSuchProviderException | InvalidKeyException | SignatureException ex) {
             Logger.getLogger(VerifyDataBySignature.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

@@ -7,6 +7,7 @@ package org.nwb.jpractice.security;
 
 import org.nwb.jpractice.security.digitalsignature.GenDSAKeyPair;
 import org.nwb.jpractice.security.digitalsignature.SignData;
+import org.nwb.jpractice.security.digitalsignature.VerifyDataBySignature;
 
 /**
  *
@@ -47,8 +48,10 @@ public class Entry {
                 }
                 case COMMAND_VERIFY:{
                     System.out.println("Verify signature...");
-                    final String path = arg[1];
-                    final String name = arg[2];
+                    final String pubKeyFile = args[1];
+                    final String file = args[2];
+                    final String sig = args[3];
+                    VerifyDataBySignature.verify(pubKeyFile, file, sig);
                     break;
                 }
                 default:{
