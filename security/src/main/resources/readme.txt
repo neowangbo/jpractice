@@ -23,4 +23,9 @@ Create sample.certs:
 2. Using openssl to create root certificate
 
 
+Security 2 important points:
+A. Authentication through digital signature. Merely verify the imformation is not changed, imformation is visible.
+B. Encryption, imformation is invisible.
+
+
 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.nwb.jpractice.security.digitalsignature;
+package org.nwb.jpractice.security.signing;
 
 import java.security.Provider;
 import java.security.Security;

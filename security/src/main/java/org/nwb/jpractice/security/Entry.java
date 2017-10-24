@@ -5,9 +5,9 @@
  */
 package org.nwb.jpractice.security;
 
-import org.nwb.jpractice.security.digitalsignature.GenDSAKeyPair;
-import org.nwb.jpractice.security.digitalsignature.SignData;
-import org.nwb.jpractice.security.digitalsignature.VerifyDataBySignature;
+import org.nwb.jpractice.security.signing.GenDSAKeyPair;
+import org.nwb.jpractice.security.signing.SignData;
+import org.nwb.jpractice.security.signing.VerifyDataBySignature;
 
 /**
  *
