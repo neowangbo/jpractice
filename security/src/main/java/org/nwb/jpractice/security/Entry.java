@@ -5,6 +5,7 @@
  */
 package org.nwb.jpractice.security;
 
+import org.nwb.jpractice.security.cipher.GenerateAESKey;
 import org.nwb.jpractice.security.signing.GenDSAKeyPair;
 import org.nwb.jpractice.security.signing.SignData;
 import org.nwb.jpractice.security.signing.VerifyDataBySignature;
@@ -21,7 +22,9 @@ public class Entry {
     
     private final static String COMMAND_VERIFY = "verify";
     
-    private final static String[] COMMANDS = {COMMAND_GENDSAKEYPAIR,COMMAND_SIGN,COMMAND_VERIFY};
+    private final static String COMMAND_GENAESKEY = "aeskey";
+    
+    private final static String[] COMMANDS = {COMMAND_GENDSAKEYPAIR,COMMAND_SIGN,COMMAND_VERIFY,COMMAND_GENAESKEY};
     
     public static void main(String[] args){
         
@@ -52,6 +55,12 @@ public class Entry {
                     final String file = args[2];
                     final String sig = args[3];
                     VerifyDataBySignature.verify(pubKeyFile, file, sig);
+                    break;
+                }
+                case COMMAND_GENAESKEY:{
+                    System.out.println("Generate AES key...");
+                    final String file = args[1];
+                    GenerateAESKey.gen(file);
                     break;
                 }
                 default:{
