@@ -19,12 +19,6 @@
     </properties>
     
     <modules>
-        <module>helloworld-ear</module>
-        <module>helloworld-war</module>
-        <module>helloworld-ejb-local</module>
-        <module>helloworld-ejb-api</module>
-        <module>helloworld-ejb-remote</module>
-        <module>helloworld-ejb-ear</module>
         <module>helloworld-ejb-client</module>
     </modules>
 </project>
