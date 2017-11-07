@@ -5,10 +5,14 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          id="WebApp_ID" version="3.0">
 	
-    <display-name>hellows</display-name>
-	<welcome-file-list>
+    <display-name>hellows-war</display-name>
+	
+    <module-name>hellows</module-name>
+    
+    <welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
+    
     <!--
 	<servlet>
 		<servlet-name>WSServlet</servlet-name>
@@ -23,6 +27,7 @@
 	</listener>
     -->
     
+    <!--
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>SecuredPages</web-resource-name>
@@ -31,6 +36,7 @@
         </web-resource-collection>
         <auth-constraint>
             <description>These are the roles who have access.</description>
+            <role-name>Admin</role-name>
             <role-name>AppUser</role-name>
         </auth-constraint>
         <user-data-constraint>
@@ -45,7 +51,12 @@
     </login-config>
     
     <security-role>
+        <description>Weblogic Adiminstrator</description>
+        <role-name>Admin</role-name>
+    </security-role>
+    <security-role>
         <description>Application user</description>
         <role-name>AppUser</role-name>
     </security-role>
+    -->
 </web-app>
