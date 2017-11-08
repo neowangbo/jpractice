@@ -27,12 +27,11 @@
 	</listener>
     -->
     
-    <!--
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>SecuredPages</web-resource-name>
             <description>Those pages are only accessed by authenticated users.</description>
-            <url-pattern>/*</url-pattern>
+            <url-pattern>/HelloService</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description>These are the roles who have access.</description>
@@ -47,7 +46,7 @@
     
     <login-config>
         <auth-method>BASIC</auth-method>
-        <realm-name>myrealm</realm-name>
+        <realm-name>default</realm-name>
     </login-config>
     
     <security-role>
@@ -58,5 +57,5 @@
         <description>Application user</description>
         <role-name>AppUser</role-name>
     </security-role>
-    -->
+    
 </web-app>

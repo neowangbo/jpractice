@@ -16,5 +16,4 @@
         <role-name>AppUser</role-name>
         <externally-defined/>
     </security-role-assignment>
-    
 </weblogic-web-app>
