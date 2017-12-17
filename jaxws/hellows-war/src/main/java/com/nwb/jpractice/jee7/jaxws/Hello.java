@@ -5,27 +5,27 @@
  */
 package com.nwb.jpractice.jee7.jaxws;
 
-import javax.annotation.security.DeclareRoles;
 import javax.annotation.security.RolesAllowed;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+import weblogic.jws.Policy;
 
 /**
  *
  * @author wangbo
  */
-@DeclareRoles({"AppUser","Admin"})
-@WebService
+@WebService(name="HelloWorldPortType", serviceName="HelloWorldService")
+@Policy(uri="policy:Wssp1.2-2007-Wss1.0-UsernameToken-Plain-X509-Basic256.xml")
+@RolesAllowed({"Admin","AppUser"})
 public class Hello {
 
-    private static final String message = "Hello, ";
+    private static final String MSG_HELLO = "Hello, ";
     
     public Hello(){
     }
     
-    @RolesAllowed({"AppUser","Admin"})
     @WebMethod
     public String sayHello(String name){
-        return message + name + ".";
+        return MSG_HELLO + name + "!";
     }
 }

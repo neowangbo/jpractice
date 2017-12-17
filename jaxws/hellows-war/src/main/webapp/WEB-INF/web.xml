@@ -25,7 +25,7 @@
 	<listener>
 		<listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
 	</listener>
-    -->
+    
     
     <security-constraint>
         <web-resource-collection>
@@ -57,5 +57,5 @@
         <description>Application user</description>
         <role-name>AppUser</role-name>
     </security-role>
-    
+    -->
 </web-app>
