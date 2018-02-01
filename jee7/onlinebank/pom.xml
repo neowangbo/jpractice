@@ -14,9 +14,6 @@
     </properties>
     
     <modules>
-        <module>onlinebank-ear</module>
-        <module>onlinebank-web</module>
-        <module>onlinebank-ejb</module>
         <!--<module>onlinebank-ejb</module>-->
     </modules>
 </project>
