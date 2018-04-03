@@ -14,14 +14,9 @@ import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 
 // and the targetNamespace used in the generated WSDL is "http://example.org"
-@WebService(serviceName = "ComplexService",
-    name = "ComplexPortType",
-    targetNamespace = "http://example.org")
-
+@WebService(serviceName = "ComplexService",name = "ComplexPortType",targetNamespace = "http://example.org")
 // Standard JWS annotation that specifies this is a document-literal-wrapped Web Service
-@SOAPBinding(style = SOAPBinding.Style.DOCUMENT,
-    use = SOAPBinding.Use.LITERAL,
-    parameterStyle = SOAPBinding.ParameterStyle.WRAPPED)
+@SOAPBinding(style = SOAPBinding.Style.DOCUMENT,use = SOAPBinding.Use.LITERAL,parameterStyle = SOAPBinding.ParameterStyle.WRAPPED)
 /**
  * This JWS file forms the basis of a WebLogic Web Service. The Web Services has two public operations:
  *
