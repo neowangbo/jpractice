@@ -17,21 +17,34 @@ public class SingleLinkedStrList {
     public String toString(){
         StringBuilder sb = new StringBuilder("[");
         
-        SingleLinkedStrListNode index = head;
-        while(index != null){
-            sb.append(index.getValue());
-            if(index.getNext() != null){
+        SingleLinkedStrListNode pointer = head;
+        while(pointer != null){
+            sb.append(pointer.value);
+            if(pointer.next != null){
+                // this is not last node
                 sb.append(",");
             }
-            index = index.getNext();
+            pointer = pointer.next;
         }
         
         return sb.append("]").toString();
     }
     
+
+    public int size(){
+        int size = 0;
+        SingleLinkedStrListNode pointer = head;
+        while(pointer != null){
+            size ++;
+            pointer = pointer.next;
+        }
+        return size;
+    }
+
     
     public void addToHead(String value){
-        SingleLinkedStrListNode node = new SingleLinkedStrListNode(value, head);
+        SingleLinkedStrListNode node = new SingleLinkedStrListNode(value);
+        node.next = head;
         head = node;
     }
     

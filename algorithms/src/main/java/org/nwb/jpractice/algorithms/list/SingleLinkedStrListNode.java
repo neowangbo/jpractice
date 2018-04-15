@@ -11,10 +11,11 @@ package org.nwb.jpractice.algorithms.list;
  */
 public class SingleLinkedStrListNode {
     
-    private String value;
+    public String value;
     
-    private SingleLinkedStrListNode next;
+    public SingleLinkedStrListNode next;
     
+    public SingleLinkedStrListNode(){}
     
     public SingleLinkedStrListNode(String value){
         this(value, null);
@@ -23,14 +24,6 @@ public class SingleLinkedStrListNode {
     public SingleLinkedStrListNode(String value, SingleLinkedStrListNode next){
         this.value = value;
         this.next = next;
-    }
-    
-    public String getValue(){
-        return value;
-    }
-    
-    public SingleLinkedStrListNode getNext(){
-        return next;
     }
     
     @Override
