@@ -17,37 +17,59 @@ public class SingleLinkedStrList {
     public String toString(){
         StringBuilder sb = new StringBuilder("[");
         
-        SingleLinkedStrListNode pointer = head;
-        while(pointer != null){
-            sb.append(pointer.value);
-            if(pointer.next != null){
+        SingleLinkedStrListNode node = head;
+        while(node != null){
+            sb.append(node.toString());
+            if(node.next != null){
                 // this is not last node
-                sb.append(",");
+                sb.append(", ");
             }
-            pointer = pointer.next;
+            node = node.next;
         }
         
         return sb.append("]").toString();
     }
     
-
+    
     public int size(){
         int size = 0;
-        SingleLinkedStrListNode pointer = head;
-        while(pointer != null){
+        
+        SingleLinkedStrListNode node = head;
+        while(node != null){
             size ++;
-            pointer = pointer.next;
+            node = node.next;
         }
+        
         return size;
     }
-
     
+
     public void addToHead(String value){
-        SingleLinkedStrListNode node = new SingleLinkedStrListNode(value);
+        SingleLinkedStrListNode node = new SingleLinkedStrListNode();
+        node.value = value;
         node.next = head;
         head = node;
     }
     
+    
+    public void addToTail(String value){
+        
+        SingleLinkedStrListNode node = new SingleLinkedStrListNode();
+        node.value = value;
+        
+        if(head == null){
+            head = node;
+        }else{
+            SingleLinkedStrListNode pre = head;
+            SingleLinkedStrListNode pointer = head;
+            
+            while(pointer != null){
+                pre = pointer;
+                pointer = pointer.next;
+            }
+            pre.next = node;
+        }
+    }
     
     
 }

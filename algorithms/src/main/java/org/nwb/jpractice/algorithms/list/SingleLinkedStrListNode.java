@@ -17,15 +17,6 @@ public class SingleLinkedStrListNode {
     
     public SingleLinkedStrListNode(){}
     
-    public SingleLinkedStrListNode(String value){
-        this(value, null);
-    }
-    
-    public SingleLinkedStrListNode(String value, SingleLinkedStrListNode next){
-        this.value = value;
-        this.next = next;
-    }
-    
     @Override
     public String toString(){
         return value;
