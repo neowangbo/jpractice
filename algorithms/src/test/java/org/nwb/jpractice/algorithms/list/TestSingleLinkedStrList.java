@@ -24,6 +24,8 @@ public class TestSingleLinkedStrList {
     
     private static final String[] STRING_ARRAY = {"ONE","TWO","THREE","FOUR","FIVE","SIX","SEVEN","EIGHT","NINE"};
     
+    private static final String[] EMPTY_STRING_ARRAY = {};
+    
     
     public TestSingleLinkedStrList(){
         LOG.info("constructor() ...");
@@ -63,4 +65,36 @@ public class TestSingleLinkedStrList {
         Assert.assertEquals(Arrays.toString(STRING_ARRAY), list.toString());
     }
     
+    @Test
+    public void testToStringByEmptyList(){
+        SingleLinkedStrList list = new SingleLinkedStrList();
+        
+        LOG.info("Expected: " + Arrays.toString(EMPTY_STRING_ARRAY));
+        LOG.info("Actual  : " + list.toString());
+        
+        Assert.assertEquals(Arrays.toString(EMPTY_STRING_ARRAY), list.toString());
+    }
+    
+    @Test
+    public void testSize(){
+        SingleLinkedStrList list = new SingleLinkedStrList();
+        for(String str:STRING_ARRAY){
+            list.addToTail(str);
+        }
+        
+        LOG.info("Expected: " + STRING_ARRAY.length);
+        LOG.info("Actual  : " + list.size());
+        
+        Assert.assertEquals(STRING_ARRAY.length, list.size());
+    }
+    
+    @Test
+    public void testSizeByEmptyList(){
+        SingleLinkedStrList list = new SingleLinkedStrList();
+        
+        LOG.info("Expected: " + EMPTY_STRING_ARRAY.length);
+        LOG.info("Actual  : " + list.size());
+        
+        Assert.assertEquals(EMPTY_STRING_ARRAY.length, list.size());
+    }
 }

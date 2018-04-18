@@ -71,5 +71,22 @@ public class SingleLinkedStrList {
         }
     }
     
+    public String get(int index){
+        if (index < 0) {
+            throw new IndexOutOfBoundsException("index = " + index);
+        }
+        
+        SingleLinkedStrListNode pre = null;
+        SingleLinkedStrListNode node = head;        
+        for(int i = 0; i <= index; i++){
+            if(node == null){
+                throw new IndexOutOfBoundsException("index = " + index + ", size = " + i);
+            }
+            pre = node;
+            node = node.next;
+        }
+        
+        return pre.value;
+    }
     
 }
