@@ -97,4 +97,43 @@ public class TestSingleLinkedStrList {
         
         Assert.assertEquals(EMPTY_STRING_ARRAY.length, list.size());
     }
+    
+    @Test
+    public void testAddToHead(){
+        String firstVal = "FIRST";
+        String secVal = "SECOND";
+        
+        SingleLinkedStrList list = new SingleLinkedStrList();
+        
+        list.addToHead(firstVal);     
+        Assert.assertEquals(firstVal, list.get(0));
+        
+        list.addToHead(secVal);     
+        Assert.assertEquals(secVal, list.get(0));
+    }
+    
+    @Test
+    public void testAddToTail(){
+        SingleLinkedStrList list = new SingleLinkedStrList();
+        for(String str:STRING_ARRAY){
+            list.addToTail(str);
+        }
+        
+        String firstVal = "FIRST";
+        String secVal = "SECOND";
+        
+        list.addToTail(firstVal);
+        int listIndex = list.size() - 1;
+        
+        LOG.info("listIndex = " + listIndex + ", lastVal = " + list.get(listIndex));
+        
+        Assert.assertEquals(firstVal, list.get(listIndex));
+        
+        list.addToTail(secVal);
+        listIndex = list.size() - 1;
+        
+        LOG.info("listIndex = " + listIndex + ", lastVal = " + list.get(listIndex));
+        
+        Assert.assertEquals(secVal, list.get(listIndex));
+    }
 }
