@@ -5,18 +5,16 @@ import java.util.Iterator;
 /**
  * @see: https://docs.oracle.com/javase/8/docs/technotes/guides/language/foreach.html
  * @see: https://docs.oracle.com/javase/8/docs/api/index.html
+ * Iterable<T> interface since 1.5
+ * Iterator<E> interface since 1.2
  * */
 public class ForEachImpl implements Iterable<String>{
 	
 	private String[] ELEMENTS = {"ZERO","ONE","TWO","THREE","FOUR","FIVE","SIX","SEVEN","EIGHT","NINE"};
 	
-	public class IteratorImpl implements Iterator<String>{
+	private class IteratorImpl implements Iterator<String>{
 
 		private int index = 0;
-		
-		private IteratorImpl() {
-			// is not able to initiate
-		}
 		
 		@Override
 		public boolean hasNext() {
