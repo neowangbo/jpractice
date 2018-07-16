@@ -9,7 +9,8 @@ import java.util.Arrays;
 
 /**
  *
- * O(N^2)
+ * Comparison: O(N^2)
+ * Swap      : O(N^2)
  * 
  * @author wangbo
  */
