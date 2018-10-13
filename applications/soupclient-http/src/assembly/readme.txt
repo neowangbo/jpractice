@@ -1,0 +1,1 @@
+This is experimental project for a java standalone application.
