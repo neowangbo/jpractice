@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2 Columns Selection</title>
+</head>
+<style>
+    
+</style>
+<body>
+    <h1>2 Columns Selection</h1>
+
+    <div>
+        <table>
+            <col width="400px"/>
+            <col width="60px"/>
+            <col width="400px"/>
+            
+            <thead>
+                <tr>
+                    <th>Available Services</th>
+                    <th></th>
+                    <th>Assigned Services</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <select id="availableServices" multiple></select>
+                    </td>
+                    <td>
+                        <button>&gt;</button>
+                        <br/>
+                        <button>&lt;</button>
+                    </td>
+                    <td>
+                        <select id="assignedServices" multiple></select>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    
+    <!--below javascript-->
+    <script src="lib/jquery/jquery-3.3.1.js"></script>
+    <script>
+        $(document).ready(function() {
+            
+            var availableServicesJson = '[' +
+                '{"id":"1_0","label":"RFM Service"}' +
+                '{"id":"1_1","label":"UpdatePLMN Service"}' +
+                '{"id":"1_2","label":"UpdateOPLMN Service"}' +
+                '{"id":"1_3","label":"UpdateXPLMN Service"}' +
+                '{"id":"1_4","label":"UpdateGenericFile Service"}' +
+                '{"id":"2_0","label":"RAM Service"}' +
+                '{"id":"2_1","label":"Download Application Service"}' +
+                '{"id":"2_2","label":"Refresh Application Service"}' +
+                '{"id":"2_3","label":"Refresh and POE Service"}' +
+                '{"id":"2_4","label":"Trigger Application Service"}' +
+                "]";
+            
+            
+            
+            
+            
+            
+            
+            
+        });
+
+        $(function() {
+            //console.log("ready!");
+        });
+    </script>
+</body>
+
+</html>
