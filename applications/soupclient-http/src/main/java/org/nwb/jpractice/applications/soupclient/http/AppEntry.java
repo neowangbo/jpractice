@@ -10,16 +10,29 @@ public class AppEntry
 {
     public static void main( String[] args ) {
     	
-    	int num = args.length;
-    	
-    	System.out.println("Number of argments: " + num);
-    	
+    	System.out.println("Number of argments: " + args.length);
     	for(String arg : args) {
     		System.out.println("Arg: " + arg);
     	}
     	
-    	String str = "Hello world!";
-        System.out.println("original string     : " + str);
-        System.out.println("base64 masked string: " + Base64.encodeBase64String(str.getBytes()));
+    	/*  
+    	 * global settings - security
+    	 * 1. SSL key and alias
+    	 * 2. username and password
+    	 * */
+    	
+    	
+    	
+    	/*
+    	 * Pass:
+    	 * Request url
+    	 * Request body xml
+    	 * */
+    	
+    	
+    	
+    	/*
+    	 * Generate response
+    	 * */
     }
 }
