@@ -94,5 +94,6 @@
     <modules>
         <module>maven/jar-app</module>
         <module>algorithms</module>
+        <module>jdbc/jdbctrail</module>
     </modules>
 </project>
