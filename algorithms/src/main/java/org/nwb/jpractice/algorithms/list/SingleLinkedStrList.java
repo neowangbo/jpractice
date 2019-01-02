@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -87,6 +87,13 @@ public class SingleLinkedStrList {
         }
         
         return pre.value;
+    }
+    
+    public void detete(int index){
+        int size = size();
+        if(index < 0 || index >= size){
+            throw new IndexOutOfBoundsException("index = " + index + ", size = " + size);
+        }
     }
     
 }

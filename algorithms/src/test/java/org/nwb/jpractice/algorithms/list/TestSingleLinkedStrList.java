@@ -26,6 +26,7 @@ public class TestSingleLinkedStrList {
     
     private static final String[] EMPTY_STRING_ARRAY = {};
     
+    private SingleLinkedStrList list = null;
     
     public TestSingleLinkedStrList(){
         LOG.info("constructor() ...");
@@ -45,6 +46,11 @@ public class TestSingleLinkedStrList {
     @Before
     public void before(){
         LOG.info("@Before method ...");
+        
+        list = new SingleLinkedStrList();
+        for(String str:STRING_ARRAY){
+            list.addToTail(str);
+        }
     }
     
     @After
@@ -54,11 +60,6 @@ public class TestSingleLinkedStrList {
     
     @Test
     public void testToString(){
-        SingleLinkedStrList list = new SingleLinkedStrList();
-        for(String str:STRING_ARRAY){
-            list.addToTail(str);
-        }
-        
         LOG.info("Expected: " + Arrays.toString(STRING_ARRAY));
         LOG.info("Actual  : " + list.toString());
         
@@ -67,7 +68,7 @@ public class TestSingleLinkedStrList {
     
     @Test
     public void testToStringByEmptyList(){
-        SingleLinkedStrList list = new SingleLinkedStrList();
+        list = new SingleLinkedStrList();
         
         LOG.info("Expected: " + Arrays.toString(EMPTY_STRING_ARRAY));
         LOG.info("Actual  : " + list.toString());
@@ -77,11 +78,6 @@ public class TestSingleLinkedStrList {
     
     @Test
     public void testSize(){
-        SingleLinkedStrList list = new SingleLinkedStrList();
-        for(String str:STRING_ARRAY){
-            list.addToTail(str);
-        }
-        
         LOG.info("Expected: " + STRING_ARRAY.length);
         LOG.info("Actual  : " + list.size());
         
@@ -90,7 +86,7 @@ public class TestSingleLinkedStrList {
     
     @Test
     public void testSizeByEmptyList(){
-        SingleLinkedStrList list = new SingleLinkedStrList();
+        list = new SingleLinkedStrList();
         
         LOG.info("Expected: " + EMPTY_STRING_ARRAY.length);
         LOG.info("Actual  : " + list.size());
@@ -103,8 +99,6 @@ public class TestSingleLinkedStrList {
         String firstVal = "FIRST";
         String secVal = "SECOND";
         
-        SingleLinkedStrList list = new SingleLinkedStrList();
-        
         list.addToHead(firstVal);     
         Assert.assertEquals(firstVal, list.get(0));
         
@@ -114,11 +108,6 @@ public class TestSingleLinkedStrList {
     
     @Test
     public void testAddToTail(){
-        SingleLinkedStrList list = new SingleLinkedStrList();
-        for(String str:STRING_ARRAY){
-            list.addToTail(str);
-        }
-        
         String firstVal = "FIRST";
         String secVal = "SECOND";
         
