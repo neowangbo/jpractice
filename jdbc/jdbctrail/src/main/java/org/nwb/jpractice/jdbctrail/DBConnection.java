@@ -11,16 +11,17 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 /**
- *
+ * Create connection
+ * 
  * @author wangbo
  */
 public class DBConnection {
     
     private static final String CONNECTION_STRING = "jdbc:derby://localhost:1527/wbbankdb";
     
-    private static final String USERNAME = "wbadmin";
+    private static final String USERNAME = "admin";
 
-    private static final String PASSWORD = "wbadmin";
+    private static final String PASSWORD = "admin";
     
     public static Connection getConnection() throws SQLException{
         Properties prop = new Properties();
