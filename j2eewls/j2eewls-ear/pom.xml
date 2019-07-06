@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>j2eewls</artifactId>
+        <groupId>org.nwb.jpractice</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <groupId>org.nwb.jpractice</groupId>
+    <artifactId>j2eewls-ear</artifactId>
+    <packaging>ear</packaging>
+    
+    <name>j2eewls-ear</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.nwb.jpractice</groupId>
+            <artifactId>j2eewls-ejb</artifactId>
+            <version>${j2eewls.version}</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>org.nwb.jpractice</groupId>
+            <artifactId>j2eewls-web</artifactId>
+            <version>${j2eewls.version}</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>org.nwb.jpractice</groupId>
+            <artifactId>j2eewls-remote-api</artifactId>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <configuration>
+                    <version>7</version>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <skinnyWars>true</skinnyWars>
+                    <modules>
+                        <ejbModule>
+                            <groupId>org.nwb.jpractice</groupId>
+                            <artifactId>j2eewls-ejb</artifactId>
+                            <bundleFileName>j2eewls-ejb.jar</bundleFileName>
+                        </ejbModule>
+                        <webModule>
+                            <groupId>org.nwb.jpractice</groupId>
+                            <artifactId>j2eewls-web</artifactId>
+                            <bundleFileName>j2eewls-web.war</bundleFileName>
+                        </webModule>
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

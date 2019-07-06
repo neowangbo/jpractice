@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application 
+    version="7" 
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_7.xsd">
+    
+    <display-name>j2eewls</display-name>
+    <!-- application name inside container -->
+    <application-name>j2eewls</application-name>
+    <module>
+        <ejb>j2eewls-ejb.jar</ejb>
+    </module>
+    <module>
+        <web>
+            <web-uri>j2eewls-web.war</web-uri>
+            <!-- Higher priority than context-root of weblogic.xml. The highest is module-name of web.xml -->
+            <context-root>/webex</context-root>
+        </web>
+    </module>
+</application>
