@@ -1,4 +1,4 @@
-package com.martian.apps.javabasics.types;
+package com.b5wang.jpractice.javase.types;
 
 /**
  * 192 in binary = 1100,0000

@@ -1,12 +1,13 @@
-package com.martian.apps.javabasics.security.jca.digest;
+package com.b5wang.jpractice.javase.security.jca.digest;
 
-import com.martian.apps.javabasics.util.StringUtil;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+
+import com.b5wang.jpractice.javase.util.StringUtil;
 
 /**
  * Message digest, digital fingerprint of a block of data.

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.martian.apps.javabasics.config;
+package com.b5wang.jpractice.javase.config;
 
 import java.util.Map;
 

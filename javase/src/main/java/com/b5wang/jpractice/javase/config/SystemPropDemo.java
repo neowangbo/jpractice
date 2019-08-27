@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.martian.apps.javabasics.config;
+package com.b5wang.jpractice.javase.config;
 
 /**
  * Get system properties, system properties are passed by java.exe command, like

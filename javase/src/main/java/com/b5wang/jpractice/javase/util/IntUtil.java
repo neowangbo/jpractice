@@ -1,4 +1,4 @@
-package com.martian.apps.javabasics.util;
+package com.b5wang.jpractice.javase.util;
 
 /**
  * 

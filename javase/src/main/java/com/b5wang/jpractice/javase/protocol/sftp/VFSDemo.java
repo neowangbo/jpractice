@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.martian.apps.javabasics.protocol.sftp;
+package com.b5wang.jpractice.javase.protocol.sftp;
 
 import com.jcraft.jsch.JSch;
 import java.io.BufferedInputStream;

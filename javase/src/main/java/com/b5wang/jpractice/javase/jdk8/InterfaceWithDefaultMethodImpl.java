@@ -1,4 +1,4 @@
-package com.martian.apps.javabasics.jdk8;
+package com.b5wang.jpractice.javase.jdk8;
 
 import java.util.Date;
 
