@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-Built-By: wangbo
-Class-Path: lib/org.nwb.jpractice-j2eewls-remote-api-1.0-SNAPSHOT.jar
-Created-By: Apache Maven 3.6.0
-Build-Jdk: 1.8.0_211
-

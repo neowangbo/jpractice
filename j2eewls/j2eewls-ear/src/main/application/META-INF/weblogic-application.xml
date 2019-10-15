@@ -5,7 +5,7 @@
     xsi:schemaLocation="http://xmlns.oracle.com/weblogic/weblogic-application http://xmlns.oracle.com/weblogic/weblogic-application/1.7/weblogic-application.xsd">
 
     <singleton-service>
-        <class-name>org.nwb.jpractice.j2eewls.webex.service.ServiceClusterSingleton</class-name>
+        <class-name>org.nwb.jpractice.j2eewls.service.ServiceClusterSingleton</class-name>
         <name>ServiceClusterSingleton</name>
     </singleton-service>
     

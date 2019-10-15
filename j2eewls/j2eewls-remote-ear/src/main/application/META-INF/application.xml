@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<application 
-    version="7" 
-    xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_7.xsd">
-    
-    <display-name>j2eewls-remote</display-name>
-    <!-- application name inside container -->
-    <application-name>j2eewls-remote</application-name>
-    <module>
-        <ejb>j2eewls-remote-ejb.jar</ejb>
-    </module>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_7.xsd" version="7">
+  <application-name>j2eewls-remote</application-name>
+  <display-name>j2eewls-remote</display-name>
+  <module>
+    <ejb>j2eewls-remote-ejb.jar</ejb>
+  </module>
+  <library-directory>lib</library-directory>
 </application>
