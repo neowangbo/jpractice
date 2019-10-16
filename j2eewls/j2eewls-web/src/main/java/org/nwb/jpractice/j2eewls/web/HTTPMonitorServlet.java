@@ -22,18 +22,24 @@ import org.nwb.jpractice.j2eewls.util.MyLogger;
 @WebServlet(name = "HTTPMonitorServlet", urlPatterns = "/httpreq")
 public class HTTPMonitorServlet extends HttpServlet {
 
-    private static final MyLogger LOG = new MyLogger(HTTPMonitorServlet.class.getName());
-
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 7054016889892178688L;
+	
+	private static final MyLogger LOG = new MyLogger(HTTPMonitorServlet.class.getName());
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        process(request,response);
+    	LOG.info("Receive GET request!");
+    	process(request,response);
     }
 
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        process(request,response);
+    	LOG.info("Receive POST request!");
+    	process(request,response);
     }
     
     
@@ -65,7 +71,7 @@ public class HTTPMonitorServlet extends HttpServlet {
                 out.println("<h4>" + paramName + ": " + paramValue + "</h4>");
             }
             out.println("</body>");
-            out.println("</html>");
+            out.println("</html>");                        
         }
     }
 }
