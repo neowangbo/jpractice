@@ -8,7 +8,6 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>org.nwb.jpractice</groupId>
     <artifactId>j2eewls-web</artifactId>
     <packaging>war</packaging>
 

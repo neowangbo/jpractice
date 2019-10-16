@@ -7,9 +7,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.nwb.jpractice</groupId>
     <artifactId>j2eewls-remote-ear</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <packaging>ear</packaging>
     
     <name>j2eewls-remote-ear</name>

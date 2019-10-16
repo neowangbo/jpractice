@@ -8,9 +8,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>org.nwb.jpractice</groupId>
     <artifactId>j2eewls-remote-api</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>j2eewls-remote-api</name>

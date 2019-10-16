@@ -6,7 +6,7 @@
     version="3.1" >
     
     <!-- If using this item, url will become http://<host>:<port>/<module-name> -->
-    <module-name>webex</module-name>
+    <module-name>secwebapp</module-name>
     
     <session-config>
         <session-timeout>30</session-timeout>

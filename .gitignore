@@ -1,7 +1,4 @@
-/utils/target/
-/security/target/
-/algorithms/target/
-/jdbc/jdbctrail/target/
-/dsandalg/target/
-/j2eewls/j2eewls-remote-ejb/target/
-/j2eewls/j2eewls-remote-ear/target/
+.project
+.classpath
+**/.settings
+**/target

@@ -8,27 +8,19 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>org.nwb.jpractice</groupId>
-    <artifactId>j2eewls-web</artifactId>
-    <packaging>war</packaging>
+    <artifactId>j2eewls-remote-ejb</artifactId>
+    <packaging>ejb</packaging>
 
-    <name>j2eewls-web</name>
+    <name>j2eewls-remote-ejb</name>
 
     <dependencies>
         <dependency>
-            <artifactId>j2eewls-ejb</artifactId>
-            <groupId>org.nwb.jpractice</groupId>
-            <version>${j2eewls.version}</version>
-            <type>ejb</type>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.nwb.jpractice</groupId>
             <artifactId>j2eewls-remote-api</artifactId>
+            <groupId>org.nwb.jpractice</groupId>
             <scope>provided</scope>
         </dependency>        
     </dependencies>
-    
+
     <build>
         <plugins>
             <plugin>
@@ -37,12 +29,12 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
+                <artifactId>maven-ejb-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
             </plugin>
         </plugins>
-    </build>    
+    </build>  
 </project>
