@@ -13,7 +13,12 @@ import java.io.Serializable;
  */
 public class AsynJobMsg implements Serializable{
     
-    private String id;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -3823906585337475588L;
+
+	private String id;
     
     private int duration;
     

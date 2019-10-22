@@ -1,0 +1,8 @@
+java:global.j2eewls.j2eewls-ejb.ServiceLocalSingletonSessionBean!org.nwb.jpractice.j2eewls.service.ServiceLocalSingletonSessionBean
+
+
+
+java:global.j2eewls-remote.j2eewls-remote-ejb.RemoteStatelessEJBDemoBean!org.nwb.jpractice.j2eewls.api.RemoteStatelessEJBDemo
+Application Name:	j2eewls-remote
+EJB Module Name:	j2eewls-remote-ejb.jar
+Bean Name:	        RemoteStatelessEJBDemoBean

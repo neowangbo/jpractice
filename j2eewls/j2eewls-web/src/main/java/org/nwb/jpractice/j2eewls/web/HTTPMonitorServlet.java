@@ -22,27 +22,43 @@ import org.nwb.jpractice.j2eewls.util.MyLogger;
 @WebServlet(name = "HTTPMonitorServlet", urlPatterns = "/httpreq")
 public class HTTPMonitorServlet extends HttpServlet {
 
-    /**
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7054016889892178688L;
 	
 	private static final MyLogger LOG = new MyLogger(HTTPMonitorServlet.class.getName());
+	
+	public HTTPMonitorServlet() {
+		LOG.info("Constructed");
+	}
     
+	
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	LOG.info("Receive GET request!");
-    	process(request,response);
+        process(request,response);
     }
 
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	LOG.info("Receive POST request!");
-    	process(request,response);
+        process(request,response);
     }
     
-    
+    /**
+     * request.getContextPath() - application url in welbogic. There are several places to config
+     * .war - in web.xml, <module-name>webex</module-name>
+     *      - in weblogic.xml, <context-root>webex</context-root>
+     *      - This application is a standalone .war. The priority is module-name > context-root
+     * .ear - .war was packed into a ear
+     *      - in application.xml
+	 *    <web>
+	 *      <web-uri>j2eewls-web.war</web-uri>
+	 *      <context-root>/webex</context-root>
+	 *    </web>
+	 *  </module>
+	 *        
+     * */
     private void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -71,7 +87,7 @@ public class HTTPMonitorServlet extends HttpServlet {
                 out.println("<h4>" + paramName + ": " + paramValue + "</h4>");
             }
             out.println("</body>");
-            out.println("</html>");                        
+            out.println("</html>");
         }
     }
 }

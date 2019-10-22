@@ -24,7 +24,12 @@ import org.nwb.jpractice.j2eewls.util.MyLogger;
 @WebServlet(name = "MessageServlet", urlPatterns = "/msg")
 public class MessageServlet extends HttpServlet {
 
-    private static final MyLogger LOG = new MyLogger(MessageServlet.class.getName());
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -479383059163027897L;
+
+	private static final MyLogger LOG = new MyLogger(MessageServlet.class.getName());
 
     @EJB
     private AsynJobMsgQueueSenderLocal asynJobMsgQueueSenderLocal;

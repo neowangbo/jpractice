@@ -28,7 +28,6 @@ public class MyLogger {
         System.out.println(String.format(LOG_PATTERN, name, msg));
     }
     
-    @SuppressWarnings("CallToPrintStackTrace")
     public void error(String msg, Throwable ex){
         System.out.println(String.format(LOG_PATTERN, name, msg));
         ex.printStackTrace();
