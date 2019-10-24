@@ -10,7 +10,7 @@ import org.nwb.jpractice.j2eewls.util.MyLogger;
 /* 
  * In weblogic managed server "JNDI Tree structure" you see <mappedName>#<EJB Interface class name>
  * */
-@Stateless(name="Foo", mappedName="Foolish")
+@Stateless(name="RemoteStatelessEJBDemoBean", mappedName="ejb/RemoteStatelessEJBDemoBean")
 public class RemoteStatelessEJBDemoBean implements RemoteStatelessEJBDemo {
 
 	private final static MyLogger LOG = new MyLogger(RemoteStatelessEJBDemoBean.class.getName());
