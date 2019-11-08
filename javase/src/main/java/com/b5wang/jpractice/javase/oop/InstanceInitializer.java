@@ -7,8 +7,8 @@ public class InstanceInitializer {
 
 	// constructor
 	public InstanceInitializer() {
-			System.out.println("constructor called");
-		}
+		System.out.println("constructor called");
+	}
 
 	// static initializer
 	static {
