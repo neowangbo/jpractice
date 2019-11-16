@@ -28,9 +28,7 @@ public class FutureReturnResultTest {
 		
 		System.out.println("Short time job B :: started!");
 		System.out.println("Short time job B :: ended!");
-		
-//        while(!f.isDone())
-//            ;
+
 		int result = f.get();
 		System.out.println("Long time job A :: result: " + result);
 	}
