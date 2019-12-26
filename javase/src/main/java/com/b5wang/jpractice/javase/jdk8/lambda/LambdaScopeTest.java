@@ -1,4 +1,4 @@
-package com.b5wang.jpractice.javase.jdk8;
+package com.b5wang.jpractice.javase.jdk8.lambda;
 
 import java.util.function.Consumer;
 
@@ -18,7 +18,8 @@ public class LambdaScopeTest {
 			
 			int z = 100;
 			// z = 200; only access local variables and parameters of the enclosing block that are final or effectively final
-			
+
+			// This is creating a method, the method is with a object.
 			Consumer<Integer> myConsumer = (y) -> {
 				System.out.println("x = " + x); // Statement A
 				System.out.println("y = " + y);
@@ -29,6 +30,8 @@ public class LambdaScopeTest {
 
 			myConsumer.accept(x);
 
+			// Object
+			System.out.println("Object: " + myConsumer.getClass().getName());
 		}
 	}
 

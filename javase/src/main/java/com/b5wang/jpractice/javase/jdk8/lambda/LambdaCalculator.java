@@ -1,4 +1,4 @@
-package com.b5wang.jpractice.javase.jdk8;
+package com.b5wang.jpractice.javase.jdk8.lambda;
 
 public class LambdaCalculator {
 	

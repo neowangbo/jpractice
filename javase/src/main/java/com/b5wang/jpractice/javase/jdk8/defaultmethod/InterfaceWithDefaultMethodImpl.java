@@ -1,4 +1,4 @@
-package com.b5wang.jpractice.javase.jdk8;
+package com.b5wang.jpractice.javase.jdk8.defaultmethod;
 
 import java.util.Date;
 

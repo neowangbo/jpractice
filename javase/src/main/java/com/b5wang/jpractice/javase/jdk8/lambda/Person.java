@@ -1,6 +1,8 @@
 package com.b5wang.jpractice.javase.jdk8.lambda;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -18,10 +20,16 @@ public class Person {
 
 	Sex gender;
 
+	Date birthday;
+
 	public Person(String name, int age, Sex gender) {
 		this.name = name;
 		this.age = age;
 		this.gender = gender;
+
+		Calendar now = Calendar.getInstance();
+		now.add(Calendar.YEAR, 0 - age);
+		this.birthday = now.getTime();
 	}
 
 	public void setName(String name) {
@@ -51,6 +59,16 @@ public class Person {
 	public void printPerson() {
 		System.out.println("Name: " + name + ". age = " + age);
 	}
+
+	public void setBirthday(Date birthday){
+		this.birthday = birthday;
+	}
+
+	public Date getBirthday(){
+		return birthday;
+	}
+
+
 
 	/*
 	 * Approach 1: Create Methods That Search for Members That Match One
@@ -138,6 +156,9 @@ public class Person {
 			}
 		}
 	}
+
+	// Method references
+
 	
 	
 	public static void main(String[] args) {
