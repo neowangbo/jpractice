@@ -1,12 +1,7 @@
 package com.b5wang.jpractice.javase.jdk8.lambda;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -27,6 +22,8 @@ public class Person {
 	Sex gender;
 
 	Date birthday;
+
+	public Person(){}
 
 	public Person(String name, int age, Sex gender) {
 		this.name = name;
@@ -167,8 +164,20 @@ public class Person {
 	public static int compareByAge(Person a, Person b){
 		return a.birthday.compareTo(b.getBirthday());
 	}
-	
-	
+
+
+	// Reference to a constructor
+	public static <T, SOURCE extends Collection<T>, DEST extends Collection<T>> DEST transferElements(
+			SOURCE sourceCollection,
+			Supplier<DEST> collectionFactory) {
+
+		DEST result = collectionFactory.get();
+		for (T t : sourceCollection) {
+			result.add(t);
+		}
+		return result;
+	}
+
 	public static void main(String[] args) {
 
 		List<Person> roster = new ArrayList<>();
@@ -250,7 +259,7 @@ public class Person {
 		// Method reference
 		// Sort the roster list
 		Person[] rosterArr = roster.toArray(new Person[roster.size()]);
-		System.out.println("Print all persons:");
+		System.out.println(" === Print all persons:");
 		for(Person p : roster){
 			p.printPerson();
 		}
@@ -275,11 +284,46 @@ public class Person {
 		// or
 		Arrays.sort(rosterArr, (a, b) -> Person.compareByAge(a, b));
 		// Finally, method reference come out, simplify the method call
+		// Reference to a static method
 		Arrays.sort(rosterArr, Person::compareByAge);
 
-		System.out.println("Print all persons after sorting:");
+		System.out.println(" === Print all persons after sorting by birthday:");
 		for(Person p : rosterArr){
 			p.printPerson();
 		}
+
+		// Reference to an instance method of a particular object
+		// Sorting by name
+		class ComparisonProvider {
+			public int compareByName(Person a, Person b) {
+				return a.getName().compareTo(b.getName());
+			}
+
+			public int compareByAge(Person a, Person b) {
+				return a.getBirthday().compareTo(b.getBirthday());
+			}
+		}
+
+		ComparisonProvider myComparisonProvider = new ComparisonProvider();
+		Arrays.sort(rosterArr, myComparisonProvider::compareByName);
+		System.out.println(" === Print all persons after sorting by name:");
+		for(Person p : rosterArr){
+			p.printPerson();
+		}
+
+		// Reference to an Instance Method of an Arbitrary Object of a Particular Type
+		String[] stringArray = { "Barbara", "James", "Mary", "John",
+				"Patricia", "Robert", "Michael", "Linda" };
+		System.out.println();
+		System.out.println(" --- stringArray             : " + Arrays.toString(stringArray));
+		/**
+		 * compareToIgnoreCase is an instance method, not a static method
+		 * The program knows that it can invoke this method on an instance of String,
+		 * so it can take the reference and any object of that type and be guaranteed the method exists.
+		 * */
+		Arrays.sort(stringArray, String::compareToIgnoreCase);
+		System.out.println(" --- stringArray after sorted: " + Arrays.toString(stringArray));
+
+		//Set<Person> rosterSet = transferElements(roster, HashSet<Person>::new);
 	}
 }
