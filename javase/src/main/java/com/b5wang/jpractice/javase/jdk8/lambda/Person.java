@@ -1,7 +1,10 @@
 package com.b5wang.jpractice.javase.jdk8.lambda;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.function.Consumer;
@@ -9,6 +12,9 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class Person {
+
+	private final static String pattern = "yyyy-MM-dd HH:mm:ss";
+	private final static SimpleDateFormat FORMATOR = new SimpleDateFormat(pattern);
 
 	public enum Sex {
 		MALE, FEMALE
@@ -27,9 +33,11 @@ public class Person {
 		this.age = age;
 		this.gender = gender;
 
-		Calendar now = Calendar.getInstance();
-		now.add(Calendar.YEAR, 0 - age);
-		this.birthday = now.getTime();
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.YEAR, 0 - age);
+		this.birthday = cal.getTime();
+
+		System.out.println("Create a person: name=" + name + ", age=" + age + ",birthday=" + FORMATOR.format(birthday));
 	}
 
 	public void setName(String name) {
@@ -56,19 +64,17 @@ public class Person {
 		return gender;
 	}
 
-	public void printPerson() {
-		System.out.println("Name: " + name + ". age = " + age);
-	}
-
-	public void setBirthday(Date birthday){
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 
-	public Date getBirthday(){
+	public Date getBirthday() {
 		return birthday;
 	}
 
-
+	public void printPerson() {
+		System.out.println("Name: " + name + ". age = " + age);
+	}
 
 	/*
 	 * Approach 1: Create Methods That Search for Members That Match One
@@ -157,34 +163,41 @@ public class Person {
 		}
 	}
 
-	// Method references
-
+	// Method reference
+	public static int compareByAge(Person a, Person b){
+		return a.birthday.compareTo(b.getBirthday());
+	}
 	
 	
 	public static void main(String[] args) {
 
 		List<Person> roster = new ArrayList<>();
-		roster.add(new Person("Jerry", 14, Sex.MALE));
+		roster.add(new Person("Patrick", 42, Sex.MALE));
 		roster.add(new Person("Tom", 16, Sex.MALE));
+		roster.add(new Person("Cathine", 98, Sex.FEMALE));
+		roster.add(new Person("Marry", 59, Sex.FEMALE));
+		roster.add(new Person("Jerry", 14, Sex.MALE));
+		roster.add(new Person("Rose", 68, Sex.FEMALE));
 		roster.add(new Person("Tony", 26, Sex.MALE));
 		roster.add(new Person("Peter", 38, Sex.MALE));
-		roster.add(new Person("Patrick", 42, Sex.MALE));
-		roster.add(new Person("Marry", 59, Sex.FEMALE));
-		roster.add(new Person("Rose", 68, Sex.FEMALE));
-		roster.add(new Person("Cathine", 98, Sex.FEMALE));
 
+
+		System.out.println("---------------------------- Approach 1");
 		// Approach 1
 		printPersonsOlderThan(roster, 30);
-		System.out.println("---------------------------- Approach 1");
 
+
+		System.out.println("---------------------------- Approach 2");
 		// Approach 2
 		printPersonsWithinAgeRange(roster, 10, 20);
-		System.out.println("---------------------------- Approach 2");
 
+
+		System.out.println("---------------------------- Approach 3");
 		// Approach 3
 		printPersons(roster, new CheckPersonEligibleForSelectiveService());
-		System.out.println("---------------------------- Approach 3");
 
+
+		System.out.println("---------------------------- Approach 4");
 		// Approach 4: Specify Search Criteria Code in an Anonymous Class
 		printPersons(roster, new CheckPerson() {
 			@Override
@@ -192,41 +205,81 @@ public class Person {
 				return p.getGender() == Person.Sex.MALE && p.getAge() >= 18 && p.getAge() <= 35;
 			}
 		});
-		System.out.println("---------------------------- Approach 4");
 
+
+		System.out.println("---------------------------- Approach 5");
 		// Approach 5: Specify Search Criteria Code with a Lambda Expression
 		// Anonymous method? (param) -> what need to return
 		printPersons(roster, (Person p) -> p.getGender() == Person.Sex.MALE && p.getAge() >= 18 && p.getAge() <= 35);
-		System.out.println("---------------------------- Approach 5");
 
+
+		System.out.println("---------------------------- Approach 6");
 		// Approach 6
 		printPersonsWithPredicate(roster,
 				p -> p.getGender() == Person.Sex.MALE && p.getAge() >= 18 && p.getAge() <= 35);
-		System.out.println("---------------------------- Approach 6");
 
+
+		System.out.println("---------------------------- Approach 7");
 		// Approach 7
 		processPersons(roster, p -> p.getGender() == Person.Sex.MALE && p.getAge() >= 18 && p.getAge() <= 35,
 				p -> p.printPerson());
-		System.out.println("---------------------------- Approach 7");
-		
+
+
+		System.out.println("---------------------------- More than Approach 7");
 		processPersonsWithFunction(roster,
 				p -> p.getGender() == Person.Sex.MALE && p.getAge() >= 18 && p.getAge() <= 35, 
 				p -> p.getName(),
 				name -> System.out.println(name));
-		System.out.println("---------------------------- More than Approach 7");
-		
+
+
+		System.out.println("---------------------------- Approach 8");
 		processElements(roster,
 				p -> p.getGender() == Person.Sex.MALE && p.getAge() >= 18 && p.getAge() <= 35, 
 				p -> p.getName(),
 				name -> System.out.println(name));
-		System.out.println("---------------------------- Approach 8");
 
-		
+
+		System.out.println("---------------------------- Approach 9");
 		// Approach 9: Use Aggregate Operations That Accept Lambda Expressions as Parameters
 		roster.stream()
 			.filter(p -> p.getGender() == Person.Sex.MALE && p.getAge() >= 18 && p.getAge() <= 35)
 				.map(p -> p.getName()).forEach(name -> System.out.println(name));
-		System.out.println("---------------------------- Approach 9");
 
+
+		System.out.println("---------------------------- Method reference");
+		// Method reference
+		// Sort the roster list
+		Person[] rosterArr = roster.toArray(new Person[roster.size()]);
+		System.out.println("Print all persons:");
+		for(Person p : roster){
+			p.printPerson();
+		}
+
+		// 1 - class implementation
+		class PersonAgeComparator implements Comparator<Person> {
+			public int compare(Person a, Person b) {
+				return a.getBirthday().compareTo(b.getBirthday());
+			}
+		}
+		// Arrays.sort(rosterArr, new PersonAgeComparator());
+
+		// 2 - interface Comparator is a functional interface, so can use lambda expression
+		Arrays.sort(rosterArr, (Person a, Person b) -> {
+			return a.getBirthday().compareTo(b.getBirthday());
+		});
+
+		// 3 - simplify again, uses static method compareByAge in Person.
+		Arrays.sort(rosterArr, (Person a, Person b) -> {
+			return Person.compareByAge(a, b);
+		});
+		// or
+		Arrays.sort(rosterArr, (a, b) -> Person.compareByAge(a, b));
+		// Finally, method reference come out, simplify the method call
+		Arrays.sort(rosterArr, Person::compareByAge);
+
+		System.out.println("Print all persons after sorting:");
+		for(Person p : rosterArr){
+			p.printPerson();
+		}
 	}
 }
