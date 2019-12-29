@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Premain-Class: com.nwb.jpractice.javaagent.sample.JavaAgentSample
+Can-Redefine-Classes: true
