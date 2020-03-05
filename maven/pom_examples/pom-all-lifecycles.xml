@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.b5wang.jpractice.maven</groupId>
+    <artifactId>buildwar</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+	<name>buildwar</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.ekryd.echo-maven-plugin</groupId>
+                <artifactId>echo-maven-plugin</artifactId>
+                <version>1.2.0</version>
+                <executions>
+					<!-- Clean lifecycle -->
+                    <!-- [1.1] clean.pre-clean  -->
+                    <execution>
+                        <id>pre-clean</id>
+                        <phase>pre-clean</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>clean :: pre-clean</message>
+                        </configuration>
+                    </execution>
+                    <!-- [1.2] clean.clean, but default binding plugin will be executed first. -->
+                    <execution>
+                        <id>clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>clean :: clean</message>
+                        </configuration>
+                    </execution>
+                    <!-- [1.3] clean.post-clean -->
+                    <execution>
+                        <id>post-clean</id>
+                        <phase>post-clean</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>clean :: post-clean</message>
+                        </configuration>
+                    </execution>
+					
+					<!-- Default lifecycle -->
+					<!-- [2.1] default.validate -->
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: validate</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>initialize</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: initialize</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>generate-sources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: generate-sources</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>process-sources</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: process-sources</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>generate-resources</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: generate-resources</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>process-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: process-resources</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: compile</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>process-classes</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: process-classes</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>generate-test-sources</id>
+                        <phase>generate-test-sources</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: generate-test-sources</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>process-test-sources</id>
+                        <phase>process-test-sources</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: process-test-sources</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>generate-test-resources</id>
+                        <phase>generate-test-resources</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: generate-test-resources</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>process-test-resources</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: process-test-resources</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>test-compile</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: test-compile</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>process-test-classes</id>
+                        <phase>process-test-classes</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: process-test-classes</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>test</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: test</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>prepare-package</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: prepare-package</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>package</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: package</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>pre-integration-test</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: pre-integration-test</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>integration-test</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: integration-test</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>post-integration-test</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: post-integration-test</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>verify</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: verify</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>install</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: install</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>default :: deploy</message>
+                        </configuration>
+                    </execution>
+					<!-- lifecycle site -->
+					<execution>
+                        <id>pre-site</id>
+                        <phase>pre-site</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>site :: pre-site</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>site</id>
+                        <phase>site</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>site :: site</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>post-site</id>
+                        <phase>post-site</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>site :: post-site</message>
+                        </configuration>
+                    </execution>
+					<execution>
+                        <id>site-deploy</id>
+                        <phase>site-deploy</phase>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <configuration>
+                            <message>site :: site-deploy</message>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+			
+			<!-- Site lifecycle -->
+			<plugin>
+				<groupId>org.codehaus.gmaven</groupId>                       
+				<artifactId>groovy-maven-plugin</artifactId>                 
+				<version>2.1.1</version>               
+				<executions>                                                 
+					<execution>
+						<id>pre-site</id>
+						<phase>pre-site</phase>                              
+						<goals>                                              
+							<goal>execute</goal>                             
+						</goals>                                             
+						<configuration>                                      
+							<source>log.info('Test message: {}', 'site :: pre-site')</source>                                        
+						</configuration>                                     
+					</execution>
+					<execution>
+						<id>site</id>
+						<phase>site</phase>                              
+						<goals>                                              
+							<goal>execute</goal>                             
+						</goals>                                             
+						<configuration>                                      
+							<source>log.info('Test message: {}', 'site :: site')</source>                                        
+						</configuration>                                     
+					</execution>
+					<execution>
+						<id>post-site</id>
+						<phase>post-site</phase>                              
+						<goals>                                              
+							<goal>execute</goal>                             
+						</goals>                                             
+						<configuration>                                      
+							<source>log.info('Test message: {}', 'site :: post-site')</source>                                        
+						</configuration>                                     
+					</execution>
+					<execution>
+						<id>site-deploy</id>
+						<phase>site-deploy</phase>                              
+						<goals>                                              
+							<goal>execute</goal>                             
+						</goals>                                             
+						<configuration>                                      
+							<source>log.info('Test message: {}', 'site :: site-deploy')</source>                                        
+						</configuration>                                     
+					</execution>					
+				</executions>
+			</plugin>
+			<!-- manve clean plugin can do more work
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>some/relative/path</directory>
+                            equivalent to
+                            <directory>${basedir}/some/relative/path</directory>
+                            <directory>logs</directory>
+                            <includes>
+                                <include>**/*.tmp</include>
+                                <include>**/*.log</include>
+                            </includes>
+                            <excludes>
+                                <exclude>**/important.log</exclude>
+                                <exclude>**/another-important.log</exclude>
+                            </excludes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+			-->
+			<!-- fix error java.lang.ClassNotFoundException: org.apache.maven.doxia.siterenderer.DocumentContent -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>                   
+				<artifactId>maven-site-plugin</artifactId>             
+				<version>3.8.2</version>
+			</plugin>
+        </plugins>
+    </build>
+</project>
