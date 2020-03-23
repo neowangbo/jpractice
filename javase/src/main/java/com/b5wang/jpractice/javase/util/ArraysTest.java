@@ -22,12 +22,7 @@ public class ArraysTest {
          * */
         Integer[] integerArr = Arrays.stream(intArr).boxed().toArray(Integer[]::new);
         System.out.println(Arrays.toString(integerArr));
-        Arrays.sort(integerArr, );
 
-        /**
-         * Convert array to list
-         * */
-        List<Integer> l = Arrays.asList(intArr);
 
 
     }
