@@ -72,7 +72,7 @@
                         </goals>
                         <configuration>
                             <executable>docker</executable>
-                            <commandlineArgs>build --no-cache -t firstapp:latest -f ${project.build.directory}/docker-build/Dockerfile ${project.build.directory}</commandlineArgs>
+                            <commandlineArgs>build --no-cache -t wangboneo/firstapp:latest -f ${project.build.directory}/docker-build/Dockerfile ${project.build.directory}</commandlineArgs>
                         </configuration>
                     </execution>
                 </executions>
