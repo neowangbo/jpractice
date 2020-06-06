@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Automatic Reconfiguration - monitorInterval=30, reload configuration only after at least 30 seconds have elapsed. The minimum interval is 5 seconds.
+ -->
+<Configuration status="WARN" monitorInterval="30">
+    <!-- A configuration equivalent to the default would look like -->
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <!-- Pkg a, Appender inherits from Root-->
+        <Logger name="com.b5wang.jpractice.logging.log4j2sample.pkg.a" level="trace" />
+
+        <!-- Pkg b, specify own Appender and additivity=true (by default), the log will be written twice
+             One is from own Appender, another one is from Root's Appender.
+             This use-case is for output to more than 1 places, e.g. 2 files in differ locations -->
+        <Logger name="com.b5wang.jpractice.logging.log4j2sample.pkg.b" level="debug">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <!-- Pkg c, specify own Appender, but additivity is false, so log will not output to Root's Appender -->
+        <Logger name="com.b5wang.jpractice.logging.log4j2sample.pkg.c" level="info"  additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>/>
+
+        <Root level="fatal">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
